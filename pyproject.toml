@@ -1,0 +1,27 @@
+[project]
+name = "router-soporte"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Sebas", email = "sebastiangonzita@hotmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "langchain-openai>=1.7.4",
+    "langgraph>=1.2.21",
+    "python-dotenv>=1.2.4",
+]
+
+[project.scripts]
+router-soporte = "router_soporte:main"
+
+[build-system]
+requires = ["uv_build>=0.13.7,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "colorama>=0.4.6",
+    "langgraph-cli[inmem]>=0.4.43",
+]

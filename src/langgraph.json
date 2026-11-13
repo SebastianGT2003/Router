@@ -1,0 +1,7 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "router_soporte": "./graph/message_graph.py:graph"
+  },
+  "env": "../.env"
+}
