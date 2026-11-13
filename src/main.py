@@ -1,7 +1,7 @@
 from graph.message_graph import MessageGraph
 
 def main():
-    print("Starting Langraph Email Support Workflow!")
+    print("Starting Langraph Support Workflow!")
     # El nodo "load_emails" se encarga de traer el correo desde Gmail.
     initial_state = {
         "message": "Hoala, tengo un problema con mi factura de este mes. Me cobraron dos veces y necesito una solución.",
@@ -15,6 +15,7 @@ def main():
 
     result = graph.invoke(initial_state)
     print(result["classification"])
+    print(result["billing_info"])
 
 if __name__ == "__main__":
     main()

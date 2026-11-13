@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langgraph.types import Command, interrupt
 from langgraph.graph import END, START, StateGraph
-from promps import MESSAGE_CATEGORIZER
+from promps import PROMPTS
 from langchain_core.prompts import PromptTemplate
 from utils.state import MessageClassification
 
@@ -19,7 +19,7 @@ def ClassificationMessageAgent():
     #Traer el prompt de clasificación
 
     message_categorizer_prompt= PromptTemplate(
-        template=MESSAGE_CATEGORIZER,
+        template=PROMPTS["MESSAGE_CATEGORIZER"],
         input_variables=["message"]
     )
     return message_categorizer_prompt | llm.with_structured_output(MessageClassification)

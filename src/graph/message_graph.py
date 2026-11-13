@@ -14,7 +14,7 @@ class MessageGraph():
 
         # Agregar aristas al grafo
         self.builder.add_edge(START, "classification_message")
-        self.builder.add_edge("classification_message", END)
+        self.builder.add_edge("bills_message", END)
 
     def get_graph(self):
         return self.builder.compile()

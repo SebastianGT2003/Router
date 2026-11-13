@@ -24,3 +24,26 @@ intenciones: billing, technical, complaint u other.
 
 No respondas al cliente, no agregues saludos ni texto adicional.
 """
+
+BILLING_CHECK_TASK = """
+# TAREA
+Revisa el mensaje del cliente y decide si tienes la información mínima para
+revisar su caso de facturación.
+
+# MENSAJE DEL CLIENTE
+\"\"\"
+{message}
+\"\"\"
+
+# PASOS
+1. Identifica cuál es el problema de facturación.
+2. Verifica si el mensaje incluye el número de factura (FAC-XXXX) o el mes del cobro.
+3. Si el problema es una duda general (por ejemplo, "¿cuándo llega la factura?"),
+   NO necesitas datos adicionales.
+4. Si necesitas un dato, redacta UNA pregunta corta y amable para pedirlo.
+
+# RESULTADO ESPERADO
+- needs_info: true si falta el número de factura o el mes; false si no.
+- question: la pregunta para el cliente (vacía si needs_info es false).
+- reason: una frase que explique la decisión.
+"""
