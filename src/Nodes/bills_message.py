@@ -17,4 +17,11 @@ def BillsMessage(state: MessageState)-> MessageState:
     if not message:
         raise ValueError("El mensaje no puede estar vacío.")
     result = AGENT_REGISTRY["message_billing"].invoke({"message": message})
+
+    if result.bill_number is None:
+        respuesta = interrupt({
+            "case_id": state.case_id,
+            "pregunta": "¿Me compartes el número de factura (FAC-XXXX) o el mes del cobro?",
+        })
+        result.bill_number = respuesta
     return {"billing_info": result}

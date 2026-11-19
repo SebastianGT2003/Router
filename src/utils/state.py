@@ -21,6 +21,7 @@ class MessageState(BaseModel):
     intent: str = Field("", description="The intent of the email, e.g., 'billing', 'technical', etc.")
     reason: str = Field("", description="The reason for the intent classification.")
     response: str = Field("", description="The response generated for the email.")
+    case_id: str = Field("", description="A unique identifier for the case.")
 
     #Classification result
     classification: MessageClassification | None = None

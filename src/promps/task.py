@@ -43,11 +43,19 @@ revisar su caso de facturación.
 4. Si necesitas un dato, redacta UNA pregunta corta y amable para pedirlo.
 
 # RESULTADO ESPERADO
-- needs_info: true si falta el número de factura o el mes; false si no.
-- question: la pregunta para el cliente (vacía si needs_info es false).
-- reason: una frase que explique la decisión.
+- bill_number: el número de factura (formato FAC-XXXX) si el cliente lo menciona; si no, null.
+- date: el mes o fecha del cobro si lo menciona (ej. "marzo 2026"); si no, null.
+- reason: una frase que explique el problema de facturación.
+
 """
 TECHNICAL_TASK = """
+Mensaje del cliente:
+"{message}"
+
+Responde al cliente siguiendo tus instrucciones.
+"""
+
+COMPLAINT_TASK = """
 Mensaje del cliente:
 "{message}"
 
