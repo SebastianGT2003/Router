@@ -7,7 +7,7 @@ from agents import AGENT_REGISTRY
 from utils.state import MessageState
 
 
-def ClassificationMessage(state: MessageState) -> Command[Literal["bills_message", "__end__"]]:
+def ClassificationMessage(state: MessageState) -> Command[Literal["bills_message", "technical_message", "__end__"]]:
     """
     Classifies the intent of a message and routes it to the right node.
 
@@ -24,6 +24,9 @@ def ClassificationMessage(state: MessageState) -> Command[Literal["bills_message
     if result.intent == "billing":
         # Si la intención es un problema de facturación, ir al nodo de facturación
         next_node = "bills_message"
+    elif result.intent == "technical":
+        # Si la intención es un problema de tecnología, ir al nodo de tecnología
+        next_node = "technical_message"
     else:
         # De momento, las demás intenciones terminan el flujo
         next_node = END

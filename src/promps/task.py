@@ -47,3 +47,9 @@ revisar su caso de facturación.
 - question: la pregunta para el cliente (vacía si needs_info es false).
 - reason: una frase que explique la decisión.
 """
+TECHNICAL_TASK = """
+Mensaje del cliente:
+"{message}"
+
+Responde al cliente siguiendo tus instrucciones.
+"""
